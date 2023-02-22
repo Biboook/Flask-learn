@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block main_body %}
+<section class="banner-area relative">
+    <div class="overlay overlay-bg"></div>
+    <section>
+        <div class="container py-5">
+            <div class="row">
+                <div class="col">
+                </div>
+            </div>
+            <br><br>
+            <h3 class="text-white">Airway tickets</h3>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Anonymous_emblem.svg/640px-Anonymous_emblem.svg.png"
+                                 alt="avatar"
+                                 class="rounded-circle img-fluid" style="width: 150px;">
+                            <p class="text-muted mb-1">{{session.name}}</p>
+                            <p class="text-muted mb-4">{{session.login}}</p>
+                        </div>
+                    </div>
+
+                </div>
+                {% if context.user_booking%}
+                {% for flight in context.user_booking%}
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">From: {{flight.flight_from}}</p>
+                                </div>
+                                <div class="col-sm-9">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">To: {{flight.flight_to}}</p>
+                                </div>
+                                <div class="col-sm-9">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Start Booking: {{flight.start}}</p>
+                                </div>
+                                <div class="col-sm-9">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">End Booking: {{flight.end}}</p>
+                                </div>
+                                <div class="col-sm-9">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Adult: {{flight.adults}}</p>
+                                </div>
+                                <div class="col-sm-9">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Child: {{flight.child}}</p>
+                                </div>
+                                <div class="col-sm-9">
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                            {% if context.user_booking%}
+                            {% for file in context.user_booking%}
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <a href="{{url_for('download_file', flight_id=file.flight_id)}}" class="mb-0">Identification: {{file.identification}}</a>
+                                </div>
+                                <div class="col-sm-9">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+{% endblock %}
+
+
+
+

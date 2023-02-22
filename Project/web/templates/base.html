@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="static/assets/img/fav.png">
+    <!-- Author Meta -->
+    <meta name="author" content="colorlib">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Travel {% block title %} {% endblock %}</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <!--
+    CSS
+    ============================================= -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/assets/css/linearicons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/assets/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/assets/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/assets/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/assets/css/jquery-ui.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/assets/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/assets/css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/assets/css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/assets/css/main.css') }}">
+    <style>
+    html { overflow:  hidden; }
+  </style>
+</head>
+<body>
+<header id="header">
+    <div class="container main-menu">
+        <div class="row align-items-center justify-content-between d-flex">
+            <div id="logo">
+                <a href="index.html"><img src="../static/assets/img/logo.png" alt="" title=""/></a>
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('packages') }}">Packages</a></li>
+                    <li><a href="{{ url_for('hotels') }}">Hotels</a></li>
+                    <li><a href="{{ url_for('insurance') }}">Insurence</a></li>
+                    <li class="menu-has-children"><a href="">Blog</a>
+                        <ul>
+                            <li><a href="{{ url_for('blog_home') }}">Blog Home</a></li>
+                            <li><a href="{{ url_for('blog_single') }}">Blog Single</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-has-children"><a href="">Pages</a>
+                        <ul>
+                            <li><a href="{{ url_for('elements') }}">Elements</a></li>
+                            <li class="menu-has-children"><a href="">Level 2 </a>
+                                <ul>
+                                    <li><a href="#">Item One</a></li>
+                                    <li><a href="#">Item Two</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    {% if session.authenticated %}
+                    <li><a href="{{ url_for('user_page', user_id=session.uid) }}">Booking</a></li>
+                    <li><a href="{{ url_for('mybooking', user_id=session.uid) }}">User Page</a></li>
+                    <li><a href="{{ url_for('logout')}}">Logout</a></li>
+                    {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    {% endif %}
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </div>
+</header><!-- #header -->
+
+{% block main_body %}
+
+{% endblock %}
+
+
+{% block section %}{% endblock %}
+<section class="banner-area1 relative">
+    <div class="overlay overlay-bg"></div>
+
+    <div class="container">
+        {% block div %}
+
+        {% endblock %}
+        <div class="row align-items-center justify-content-between" style="height: 100px;">
+
+        </div>
+    </div>
+    </div>
+</section>
+
+<!-- End banner Area -->
+
+<script src="../static/assets/js/vendor/jquery-2.2.4.min.js"></script>
+<script src="../static/assets/js/popper.min.js"></script>
+<script src="../static/assets/js/vendor/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+<script src="../static/assets/js/jquery-ui.js"></script>
+<script src="../static/assets/js/easing.min.js"></script>
+<script src="../static/assets/js/hoverIntent.js"></script>
+<script src="../static/assets/js/superfish.min.js"></script>
+<script src="../static/assets/js/jquery.ajaxchimp.min.js"></script>
+<script src="../static/assets/js/jquery.magnific-popup.min.js"></script>
+<script src="../static/assets/js/jquery.nice-select.min.js"></script>
+<script src="../static/assets/js/owl.carousel.min.js"></script>
+<script src="../static/assets/js/mail-script.js"></script>
+<script src="../static/assets/js/main.js"></script>
+</body>
+</html>
